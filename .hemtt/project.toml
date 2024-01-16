@@ -1,0 +1,7 @@
+name = "KGE"
+prefix = "kge"
+author = "nikolauska"
+
+[version]
+path = "addons/main/script_version.hpp"
+git_hash = 4

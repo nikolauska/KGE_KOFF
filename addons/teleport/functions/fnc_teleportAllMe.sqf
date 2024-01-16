@@ -16,7 +16,7 @@
 private _inVehicle = 0;
 {
     if(!local _x && {alive _x || _x getVariable [QEGVAR(respawn,alive), true]}) then {
-        [_x, KGE_Player] call FUNC(toBehind);
+        [_x, ACE_PLAYER] call FUNC(toBehind);
 
         private _respawnedIndex = GVAR(respawned) find _x;
         if(_respawnedIndex != -1) then {GVAR(respawned) set [_respawnedIndex, nil]};

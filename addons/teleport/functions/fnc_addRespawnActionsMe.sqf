@@ -28,7 +28,7 @@ private _actions = [];
                         {(_this select 2) call FUNC(toBehind)},
                         {true},
                         {},
-                        [_x, KGE_Player]
+                        [_x, ACE_PLAYER]
                     ] call ace_interact_menu_fnc_createAction,
                     [],
                     _x

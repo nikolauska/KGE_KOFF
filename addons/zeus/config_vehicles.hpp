@@ -14,7 +14,7 @@ class CfgVehicles {
                     icon = "";
                     exceptions[] = {"isNotInside", "isNotSitting", "isNotOnLadder", "isNotSwimming"};
                     condition = "true";
-                    statement = QUOTE([ARR_2(KGE_Player,true)] call FUNC(activateClient));
+                    statement = QUOTE([ARR_2(ACE_PLAYER,true)] call FUNC(activateClient));
                 };
             };
         };

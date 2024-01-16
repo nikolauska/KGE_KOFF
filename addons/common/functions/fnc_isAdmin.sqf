@@ -9,6 +9,6 @@
  * Bool
  */
 
-params [["_unit", KGE_Player, [objNull]]];
+params [["_unit", ACE_PLAYER, [objNull]]];
 
 _unit getVariable ["KGE_Admin", false] || serverCommandAvailable "#kick" || isServer

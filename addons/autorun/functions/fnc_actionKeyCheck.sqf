@@ -18,7 +18,7 @@ if !(GVAR(isAutoRunActive)) exitWith {};
 {
     if(_keyCode in actionKeys _x) exitWith {
         GVAR(isAutoRunActive) = false;
-        //KGE_Player switchMove "";
+        //ACE_PLAYER switchMove "";
 
         KGE_LOGINFO("Autorun stopped");
 
@@ -32,7 +32,7 @@ if !(GVAR(isAutoRunActive)) exitWith {};
                     _action = "PlayerProne";
             };
 
-            KGE_Player playActionNow _action;
+            ACE_PLAYER playActionNow _action;
         }, [_x], 0.01] call EFUNC(common,waitUntil);
 
     };

@@ -17,7 +17,7 @@ GVAR(isAutoRunActive) = !GVAR(isAutoRunActive);
 if !(GVAR(isAutoRunActive)) exitWith {
     KGE_LOGINFO("Autorun stopped");
 
-    KGE_Player switchMove "";
+    ACE_PLAYER switchMove "";
     GVAR(lastMode) = nil;
 };
 

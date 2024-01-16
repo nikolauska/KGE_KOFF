@@ -45,7 +45,7 @@ cutText ["Select position to teleport by clicking position on map", "PLAIN"];
         Hint "You cannot teleport player who is in vehicle and is not passenger!";
     };
 
-    [QGVAR(remoteTeleport), [_unit, GVAR(mapClickPos), KGE_Player], _unit] call CBA_fnc_targetEvent;
+    [QGVAR(remoteTeleport), [_unit, GVAR(mapClickPos), ACE_PLAYER], _unit] call CBA_fnc_targetEvent;
 
     Hint format ["%1 teleported to %2!", _unit call EFUNC(common,getName), GVAR(mapClickPos)];
 

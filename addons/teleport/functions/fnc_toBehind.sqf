@@ -44,7 +44,7 @@ if !((_unit call EFUNC(common,playerVehicleStatus)) in [-1, 3]) exitWith {
     Hint "You cannot teleport player who is in vehicle and is not passenger!";
 };
 
-[QGVAR(remoteTeleport), [_unit, _targetPos, KGE_Player], _unit] call CBA_fnc_targetEvent;
+[QGVAR(remoteTeleport), [_unit, _targetPos, ACE_PLAYER], _unit] call CBA_fnc_targetEvent;
 
 Hint format ["%1 teleported to your location!", _unit call EFUNC(common,getName)];
 

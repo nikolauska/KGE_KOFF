@@ -15,7 +15,7 @@
 
 {
     if(!local _x && {alive _x || _x getVariable [QEGVAR(respawn,alive), true]} && {(_x call EFUNC(common,playerVehicleStatus)) in [-1, 3]}) then {
-        [_x, KGE_Player] call FUNC(toBehind);
+        [_x, ACE_PLAYER] call FUNC(toBehind);
     };
 
     GVAR(respawned) set [_forEachIndex, nil];

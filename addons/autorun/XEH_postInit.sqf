@@ -1,5 +1,5 @@
 #include "script_component.hpp"
-#include "\a3\editor_f\Data\Scripts\dikCodes.h"
+#include "\a3\ui_f\hpp\defineDIKCodes.inc"
 
 // Autorun loop
 [{
@@ -10,10 +10,9 @@
         KGE_LOGINFO("Autorun stopped");
     };
 
-    private ["_animation"];
-    _animation = GVAR(autoRunMode) call FUNC(getAnimation);
+    private _animation = GVAR(autoRunMode) call FUNC(getAnimation);
 
-    KGE_Player playMoveNow _animation;
+    ACE_PLAYER playMoveNow _animation;
 
     // Change to last mode
     if !(isNil QGVAR(lastMode)) then {
@@ -32,7 +31,7 @@
 // Disable autorun when teleported
 [QEGVAR(teleport,onTeleport), {
     GVAR(isAutoRunActive) = false;
-    KGE_Player playMoveNow "";
+    ACE_PLAYER playMoveNow "";
 }] call CBA_fnc_addEventHandler;
 
 ["ace_common_forceWalk", {

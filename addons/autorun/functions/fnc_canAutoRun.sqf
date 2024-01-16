@@ -11,34 +11,32 @@
 
 #include "script_component.hpp"
 
-private ["_gradient", "_fatigue"];
-
-if !(alive KGE_Player) exitWith {false};
+if !(alive ACE_PLAYER) exitWith {false};
 
 // If KGE respawn is used
-if !(KGE_Player getVariable [QEGVAR(respawn,alive), true]) exitWith {false};
+if !(ACE_PLAYER getVariable [QEGVAR(respawn,alive), true]) exitWith {false};
 
-if(vehicle KGE_Player != KGE_Player) exitWith {false};
-if(surfaceIsWater (getPosASL KGE_Player)) exitWith {false};
+if(vehicle ACE_PLAYER != ACE_PLAYER) exitWith {false};
+if(surfaceIsWater (getPosASL ACE_PLAYER)) exitWith {false};
 
 // No need for fatigue and gradient check for walking
 if(GVAR(autoRunMode) isEqualTo WALK) exitWith {true};
 
 // Disable running when weapon is holstered
-if((animationState KGE_Player) in GVAR(disablingAnimation)) exitWith {false};
+if((animationState ACE_PLAYER) in GVAR(disablingAnimation)) exitWith {false};
 
-_gradient = KGE_Player call FUNC(getTerrainGradient);
-_fatigue = getFatigue KGE_Player;
-
+private _fatigue = getFatigue ACE_PLAYER;
 if(_fatigue > GVAR(fatigueThreshold)) then { GVAR(lastMode) = GVAR(autoRunMode); GVAR(autoRunMode) = JOG; };
+
+private _gradient = ACE_PLAYER call FUNC(getTerrainGradient);
 if(_gradient < GVAR(terrainGradientMaxDecline)) then { GVAR(lastMode) = GVAR(autoRunMode); GVAR(autoRunMode) = WALK };
 if(_gradient > GVAR(terrainGradientMaxIncline)) then { GVAR(lastMode) = GVAR(autoRunMode); GVAR(autoRunMode) = WALK };
 
 // If sprint is not allowed, change to jog
-if(!isSprintAllowed KGE_Player && GVAR(autoRunMode) == SPRINT) then { GVAR(autoRunMode) = JOG; };
+if(!isSprintAllowed ACE_PLAYER && GVAR(autoRunMode) == SPRINT) then { GVAR(autoRunMode) = JOG; };
 
 // If forced walk, switch to walk
 if(GVAR(forceWalk) && GVAR(autoRunMode) != WALK) then { GVAR(autoRunMode) = WALK; };
-if(isForcedWalk KGE_Player && GVAR(autoRunMode) != WALK) then { GVAR(autoRunMode) = WALK; };
+if(isForcedWalk ACE_PLAYER && GVAR(autoRunMode) != WALK) then { GVAR(autoRunMode) = WALK; };
 
 true;

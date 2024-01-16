@@ -18,7 +18,7 @@
 #include "script_component.hpp"
 
 params [
-    ["_unit", KGE_Player, [objNull]]
+    ["_unit", ACE_PLAYER, [objNull]]
     ];
 
 if((vehicle _unit) == _unit) exitWith {-1};
