@@ -38,7 +38,7 @@
   params ["_unit", "_set"];
 
   if(local _unit) then {
-    GVAR(forceWalk) = _set;
+    GVAR(forceWalk) = (_set > 0);
   };
 }] call CBA_fnc_addEventHandler;
 
