@@ -1,3 +1,6 @@
+- v1.0.8
+  - Fixed: Autorun stops working due to force walk error
+
 - v1.0.7
   - Added: Beautified names for addons
   - Updated: Configs now only allow latest CBA
